@@ -1,0 +1,43 @@
+#toolbar {
+  display: flex;
+
+  div.has-menu {
+    position: relative;
+
+    menu {
+      width: max-content;
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      border: 1px solid lightgray;
+      background: #fff;
+
+      section {
+        border-bottom: 1px solid lightgray;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        li {
+          list-style-type: none;
+          padding: 8px 14px;
+
+          &:hover {
+            cursor: pointer;
+            background-color: rgba(0, 24, 73, 0.027);
+          }
+        }
+      }
+    }
+  }
+
+  div.right {
+    margin-left: auto;
+    display: flex;
+  }
+
+  > a {
+    &:first-child { margin-left: -10px; }
+  }
+}
