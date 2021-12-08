@@ -10,22 +10,27 @@ class Article extends React.Component {
 
   componentDidMount() {
     fetch('https://en.wikipedia.org/api/rest_v1/page/html/Lemon')
-    .then(function (response) {
-    	// The API call was successful!
-    	return response.text();
-    })
-    .then(function (html) {
-    	// This is the HTML from our response as a text string
-      console.log(html);
-      var page = document.getElementById('page');
-      page.innerHTML = html;
-      var base = document.getElementsByTagName('base');
-      base[0].href = '';
-    })
-    .catch(function (err) {
-    	// There was an error
-    	console.warn('Something went wrong.', err);
-    });
+    .then(result => result.text())
+    .then(
+        (html) => {
+          this.setState({
+            html: html
+          });
+          var page = document.getElementById('page');
+          page.innerHTML = this.state.html;
+          var base = document.getElementsByTagName('base');
+          base[0].href = '';
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
   }
 
   render() {
