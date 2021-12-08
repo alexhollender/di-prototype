@@ -73,7 +73,11 @@ class ArticleToolbar extends React.Component {
           <div menu="watch" className="has-menu" onClick={this.triggerMenu}>
             <a className="button"><img src="/img/watch.svg" /></a>
             {this.state.menu === 'watch' &&
-              <menu>watch menu</menu>
+            <menu>
+              <section>
+                <li>Watch menu</li>
+              </section>
+            </menu>
             }
           </div>
           <Link to="/edit" id="edit" className="button button-with-icon button-bold button-primary">

@@ -1,5 +1,49 @@
-#edit-toolbar {
-  max-width: 960px;
-  height: 40px;
-  margin: 0 auto;
+#page-container {
+  max-width: 1250px;
+  display: flex;
+  margin-top: 25px;
+  padding-right: 20px;
+  position: relative;
+
+  &.full {
+    max-width: 1450px;
+    margin: 25px auto 0 auto;
+
+    #panel {
+      display: none;
+    }
+  }
+
+  &.panel {
+
+  }
+
+  &.no-panel {
+    #panel {
+      display: none;
+    }
+
+    #content-container {
+      margin-left: 290px;
+    }
+  }
+
+  #panel {
+    min-width: 250px;
+    position: sticky;
+    top: 21px;
+    height: 500px;
+    margin: 75px 40px 0 0;
+    background: #F8F9FA;
+  }
+
+  #content-container {
+    flex-grow: 1;
+  }
+
+  #edit-toolbar {
+    max-width: 960px;
+    height: 40px;
+    margin: 0 auto;
+  }
 }

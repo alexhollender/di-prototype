@@ -21,13 +21,9 @@ class Article extends React.Component {
           var base = document.getElementsByTagName('base');
           base[0].href = '';
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           this.setState({
-            isLoaded: true,
-            error
+            html: 'error'
           });
         }
       )

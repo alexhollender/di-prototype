@@ -6,7 +6,7 @@ const PageContent = ({ page }) => {
 
   return (
     <>
-    <main className="page-content">
+    <main id="page-content">
       {page === 'article' &&
         <Article />
       }

@@ -6,9 +6,7 @@ export default function App() {
   return (
     <div id="site-container">
       <SiteHeader />
-      <div id="page-container">
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   );
 }
