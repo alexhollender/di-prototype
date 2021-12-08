@@ -4,33 +4,34 @@ class Article extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: ''
+      html: ''
     };
   }
 
   componentDidMount() {
-    fetch("https://en.wikipedia.org/api/rest_v1/page/html/Lemon")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-          this.setState({
-            data: result
-          });
-        },
-        (error) => {
-          console.log('error');
-          this.setState({
-            data: 'error'
-          });
-        }
-      )
+    fetch('https://en.wikipedia.org/api/rest_v1/page/html/Lemon')
+    .then(function (response) {
+    	// The API call was successful!
+    	return response.text();
+    })
+    .then(function (html) {
+    	// This is the HTML from our response as a text string
+      console.log(html);
+      var page = document.getElementById('page');
+      page.innerHTML = html;
+      var base = document.getElementsByTagName('base');
+      base[0].href = '';
+    })
+    .catch(function (err) {
+    	// There was an error
+    	console.warn('Something went wrong.', err);
+    });
   }
 
   render() {
     return (
       <>
-      <div>{this.state.data}</div>
+      <div id="page">{this.state.html}</div>
       </>
     );
   }

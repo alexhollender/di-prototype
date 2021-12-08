@@ -74,6 +74,10 @@ a.button {
     border-color: #72777d;
     box-shadow: none;
   }
+
+  &:visited {
+    color: initial;
+  }
 }
 
 .link-group {
