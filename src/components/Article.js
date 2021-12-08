@@ -17,7 +17,6 @@ class Article extends React.Component {
             html: html
           });
           var page = document.getElementById('page');
-          page.innerHTML = this.state.html;
           var base = document.getElementsByTagName('base');
           base[0].href = '';
         },
@@ -36,7 +35,9 @@ class Article extends React.Component {
   render() {
     return (
       <>
-      <div id="page">{this.state.html}</div>
+      <div
+        dangerouslySetInnerHTML={{__html: this.state.html}}
+      />
       </>
     );
   }
