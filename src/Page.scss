@@ -1,8 +1,6 @@
 #page-container {
-  max-width: 1250px;
   display: flex;
   margin-top: 25px;
-  padding-right: 20px;
   position: relative;
 
   &.full {
@@ -12,10 +10,25 @@
     #panel {
       display: none;
     }
+
+    #content-container {
+      max-width: none;
+    }
   }
 
   &.panel {
+    #panel {
+      min-width: 270px;
+      position: sticky;
+      top: 21px;
+      height: 500px;
+      margin: 75px 40px 0 0;
+      background: #F8F9FA;
 
+      @media (max-width: 1000px) {
+        display: none;
+      }
+    }
   }
 
   &.no-panel {
@@ -24,20 +37,16 @@
     }
 
     #content-container {
-      margin-left: 290px;
+      margin-left: 310px;
+
+      @media (max-width: 1400px) {
+        margin: 0 auto;
+      }
     }
   }
 
-  #panel {
-    min-width: 250px;
-    position: sticky;
-    top: 21px;
-    height: 500px;
-    margin: 75px 40px 0 0;
-    background: #F8F9FA;
-  }
-
   #content-container {
+    max-width: 960px;
     flex-grow: 1;
   }
 

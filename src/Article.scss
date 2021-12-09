@@ -1,8 +1,23 @@
+#from-Wikipedia-tagline {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+div.hatnote {
+  padding: 2px;
+  background: whitesmoke;
+  font-size: 12px;
+  width: max-content;
+  margin: 6px 0;
+  color: #404040;
+  font-style: italic;
+}
+
 .mw-collapsed {
   display: none;
 }
 
-section {  
+section {
   figure {
     float: right;
     clear: right;

@@ -32,7 +32,9 @@ class Article extends React.Component {
   render() {
     return (
       <>
+      <p id="from-Wikipedia-tagline">From Wikipedia, the free encyclopedia</p>
       <div
+        id="data-from-API"
         dangerouslySetInnerHTML={{__html: this.state.html}}
       />
       </>
