@@ -4,6 +4,7 @@ import '../Article.scss';
 class Article extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSectionClick = this.handleSectionClick.bind(this);
     this.state = {
       html: ''
     };
@@ -17,7 +18,15 @@ class Article extends React.Component {
           this.setState({
             html: html
           });
-          var page = document.getElementById('page');
+          // create an array with all sections
+          let sectionsArray = document.querySelectorAll('section');
+          // add click listener for each section
+          sectionsArray.forEach(item => {
+            item.addEventListener('click', e => {
+              // call handleSectionClick on clicked section
+              this.handleSectionClick(e.currentTarget);
+            })
+          });
           var base = document.getElementsByTagName('base');
           base[0].href = '';
         },
@@ -27,6 +36,16 @@ class Article extends React.Component {
           });
         }
       )
+  }
+
+  handleSectionClick = (section) => {
+    // remove active class from all sections
+    let allSections = document.querySelectorAll('section');
+    allSections.forEach(item => {
+      item.classList.remove('active');
+    });
+    // add active class to clicked section
+    section.classList.add('active');
   }
 
   render() {
